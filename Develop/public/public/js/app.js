@@ -3,10 +3,10 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const { Console } = require("console");
+const fileJSON = require('./db/db.json');
 
 
-// Sets up the Express App
+// Express App set up
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,25 +23,30 @@ app.get(`*`, (req, res) =>{
 });
 
 
+// API ROUTES
 
 // GET
 
-app.get ('/api/notes', function(req, res) {
-    res.sendFile (`db.json`)
-});
+app.get (`/notes`, function (req,res) {
+    res.send (`notes.html`);
 
 app.get (`*`, function (req,res) {
-    res.sendFile (`index.html`)
-}
+    res.json ([{"title":"Test Title","text":"Test text"}])
+    }
+
+app.get ('/api/notes', function(req, res) {
+    res.json ([{"title":"Test Title","text":"Test text"}])
+};
+
 
 // POST
 
-app.post (`/api/notes`, function(req, res) {}
-
+app.post (`/api/notes`, function(req, res) {
+    res.json ([{"title":"Test Title","text":"Test text"}])
 });
 
 // DELETE
 
-app.delete ('/', function(req, res) {
+app.delete (`/api/notes/:id`), function(req, res) {
     
-});
+})
