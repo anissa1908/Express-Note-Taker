@@ -14,8 +14,12 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 // HTML ROUTES
-app.get('./index.html', (req, res) =>{
-    res.send('Does this thing work?');
+app.get(`/notes`, (req, res) =>{
+    res.send(`notes.html`);
+});
+
+app.get(`*`, (req, res) =>{
+    res.send(`index.html`);
 });
 
 
@@ -23,11 +27,11 @@ app.get('./index.html', (req, res) =>{
 // GET
 
 app.get ('/api/notes', function(req, res) {
-    res.send (`db.json`)
+    res.sendFile (`db.json`)
 });
 
 app.get (`*`, function (req,res) {
-    res.send (`index.html`)
+    res.sendFile (`index.html`)
 }
 
 // POST
@@ -39,5 +43,5 @@ app.post (`/api/notes`, function(req, res) {}
 // DELETE
 
 app.delete ('/', function(req, res) {
-
+    
 });
