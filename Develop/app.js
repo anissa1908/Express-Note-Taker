@@ -4,11 +4,16 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const fileJSON = require('./db/db.json');
+const { ifError } = require("assert");
 
 
 // Express App set upddcc
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// variable to pass in notes that user enters into the app
+
+let notesEntry = [];
 
 //useless commentdd
 app.use(express.urlencoded({extended:true}));
@@ -39,6 +44,9 @@ app.get('/api/notes', function(req, res) {
 app.post (`/api/notes`, function(req, res) {
     console.log(req.body);
     //fs writefile to store data from req.body
+fs.writeFile('notes.tx', data, (err) => {
+    if(err);
+    console.log(req.body);
 });
 
 // // DELETE
