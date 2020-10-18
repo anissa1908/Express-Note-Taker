@@ -8,7 +8,7 @@ A user can write, save and delete notes.
 ## Technologies Used
 HTML, CSS, JavaScript, Express, Path, Node.js
 
-Deployed Image
+## Deployed Image
 
 <img src="public\home page pic.png">
 
